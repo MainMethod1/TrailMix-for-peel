@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+project: Trail Walk
+author: Team MainMethod
+email: jonathan.zarate@outlook.com
+created: August 10, 2014
+version: 1.0
+known issues:
+-->
+<html>
+<head>
+	<!-- meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,
+	maximum-scale=1, user-scalable=no"/>
+	
+	<!-- jQuery Mobile local libraries -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
+	
+	<!-- cordova: required for hardware control and must be placed only after all other dependencies -->
+	
+	 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <!-- handles the device back button and displays a confirm dialog box to the user -->
+	 <script>
+                function onLoad() {
+                    document.addEventListener('deviceready', deviceReady, false);
+                }
+
+                function deviceReady() {
+                    document.addEventListener('backbutton', backButtonCallback, false);
+                }
+
+                function backButtonCallback() {
+					$('#mapexitpopup').popup().popup('open');
+				    //navigator.notification.confirm('Done for the day?',confirmCallback);
+                    }
+                /*function confirmCallback(buttonIndex) {
+                    $('#mapexitpopup').popup().popup('open');
+					if(buttonIndex == 1) {
+					navigator.app.exitApp();
+                    return true;
+                    }
+                else {
+                    return false;		
+                    }
+                }*/
+       //This will clear all of the trails each time user selects a different trail from the home page
+       window.localStorage.setItem("blane_cbox", "unchecked");
+       window.localStorage.setItem("htrail_cbox", "unchecked");
+	   window.localStorage.setItem("sbroute_cbox","unchecked");
+	   window.localStorage.setItem("pmutrail_cbox", "unchecked");
+	   window.localStorage.setItem("umdtrail_cbox","unchecked");
+	   window.localStorage.setItem("unpavedmutrail_cbox","unchecked");
+		   
+		
+       </script>
+</head>
+<body onload="onLoad();">
+
+<!-- Split button list used to select an activity and displays relevant information which pertains to that activity -->
+<section id="activities" data-role="page" id="home">
+
+<!-- header -->  
+	<div class="ui-content">
+          <!-- <h2>What do you feel like doing today?</h2></br></br> -->
+            <a href="eventsmiss.html" rel="external" data-role="button" data-theme="b">
+		  <h5>Check out . . .</h5>
+		  <h4><i> "Tour de Mississauga 2014!"</i></h4></a>
+		  </br>
+		  <ul data-role="listview" data-split-icon="heart" data-split-theme="a">
+			<li>
+				<a href="online_bicycle_lane.html" rel="external" data-transition="none">
+				<img src="imgs/activities/cycling.png">
+				<h2>Bicycle Lane</h2></a>
+				<a href="#aboutCycling1" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+			</li>
+			<li>
+				<a href="online_signed_bike_route.html" rel="external" data-transition="none">
+				<img src="imgs/activities/cycling.png">
+				<h2>Signed Bike Route</h2></a>
+				<a href="#aboutCycling2" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+			</li>
+			<li>
+				<a href="online_hiking_trail.html" rel="external" data-transition="none">
+				<img src="imgs/activities/hiking.png">
+				<h2>Hiking Trail</h2></a>
+				<a href="#aboutHiking" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+			</li>
+			<li>
+				<a href="online_paved_multiuse_trail.html" rel="external" data-transition="none">
+				<img src="imgs/activities/multiuse.png">
+				<h2>Paved Multi-use Trail</h2></a>
+				<a href="#aboutRunning" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+			</li>
+			<li>
+				<a href="online_unpaved_multiuse_trail.html" rel="external" data-transition="none">
+				<img src="imgs/activities/multiuse.png">
+				<h2>Unpaved Multi-use Trail</h2></a>
+				<a href="#aboutJogging" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+			</li>
+			<li>
+				<a href="online_unmarked_dirt_trail.html" rel="external" data-transition="none">
+				<img src="imgs/activities/multiuse.png">
+				<h2>Unmarked Dirt Trail</h2></a>
+				<a href="#aboutWalking" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+			</li>
+		   </ul>
+	</div>
+
+<!-- about cycling 1 -->
+<div data-role="popup" id="aboutCycling1" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em; text-align:center;">
+    <h3>Did you know?</h3>
+		<p>Cycling is a great way to boost your cardio!</p>
+</div>
+
+<!-- about cycling 2 -->
+<div data-role="popup" id="aboutCycling2" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em; text-align:center;">
+    <h3>Want to boost your stamina?</h3>
+		<p>Then start Cycling!</p>
+</div>
+
+<!-- about hiking -->
+<div data-role="popup" id="aboutHiking" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em; text-align:center;">
+    <h3>Did you know?</h3>
+		<p>Hiking lowers risk of colon and breast cancer :)</p>
+</div>
+
+<!-- about running -->
+<div data-role="popup" id="aboutRunning" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em; text-align:center;">
+    <h3>Did you know?</h3>
+		<p> Running can provide an noticeable boost to your confidence and self-esteem!</p>
+</div>
+
+<!-- about jogging -->
+<div data-role="popup" id="aboutJogging" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em; text-align:center;">
+    <h3>Did you know?</h3>
+		<p>Jogging reduces the risk of heart-disease :)</p>
+</div>
+
+<!-- about walking -->
+<div data-role="popup" id="aboutWalking" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em; text-align:center;">
+    <h3>Did you know?</h3>
+		<p>Walking boosts your vitamin D levels!</p>
+</div>
+
+<!-- map exit window -->
+			<div data-role="popup" id="mapexitpopup" data-theme="b" data-position-to="window">
+				<ul data-role="listview" data-inset="false" data-icon="false">
+					<li><a href='javascript: navigator.app.exitApp()'>Exit</a></li>
+					<li><a href="#map-page">Cancel</a></li>
+				</ul>
+			</div>
+
+<!-- about -->
+	<div id="about" data-role="popup" data-overlay-theme="b" style="text-align:center;" >
+		<p>Developed by Team MainMethod.</br> Copyright &reg; 2014</p>
+	</div>
+
+<!-- footer -->
+<div id="footer" data-role="footer" data-position="fixed" data-theme="b" style="text-align:center;">
+	<a href="#about" data-rel="popup" data-position-to="window"  data-role="button" data-icon="info"></a>
+</div>
+</section>
+</body>
+</html>

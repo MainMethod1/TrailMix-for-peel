@@ -1,0 +1,40 @@
+/*
+project: Trail Walk
+author: Team MainMethod
+email: jonathan.zarate@outlook.com
+created: August 10, 2014
+version: 1.0
+known issues:
+*/
+
+/* Mapbox offline maps */
+body { margin:0; padding:0; }
+/*#mapbox-map { position:absolute; top:0; bottom:0; width:100%; } */
+/* overlay menu */
+#menuPanel-popup {
+		right: 0 !important;
+		left: auto !important;
+	}
+#menuPanel {
+		width: 200px;
+		border: 1px solid #000;
+		border-right: none;
+		background: rgba(0,0,0,.5);
+		margin: -1px 0;
+	}
+#popupPanel .ui-btn {
+		margin: 2em 15px;
+	}
+/* Google online maps */
+#google-map {
+		height: 100%;
+		padding: 0%; 
+		}
+#content {
+		padding: 0 !important; 
+		position : absolute !important; 
+		top : 0 !important; 
+		right : 0 !important; 
+		bottom : 40px !important;  
+		left : 0 !important;     
+	}

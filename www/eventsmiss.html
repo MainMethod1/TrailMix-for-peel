@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+project: Trail Walk
+author: Team MainMethod
+email: jonathan.zarate@outlook.com
+created: August 10, 2014
+version: 1.0
+notes: uses superslides plugin
+includes: 
+jquery.easing.1.3.js
+jquery.animate-enhanced.min.js
+jquery.superslides.min.js
+known issues:
+-->
+<html>
+<head>
+  <!-- meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,
+	maximum-scale=1, user-scalable=no"/>
+	<link rel="stylesheet" href="css/superslides.css">
+	<!-- jQuery Mobile local libraries -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
+	<!-- cordova: required for hardware control and must be placed only after all other dependencies -->
+	 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <!-- handles device back button and should redirect the user to their previous session -->
+	 <script>
+		$(document).on('pageshow', '#map-page', function(){
+					//display ajax-loader.gif on pageshow
+					$.mobile.loading( 'show');
+				}); 
+		function onLoad() {
+        //hide ajax-loader.gif once the page has been loaded
+			$.mobile.loading('hide');
+			document.addEventListener('deviceready', deviceReady, false);
+		}
+		function deviceReady() {
+			document.addEventListener('backbutton', backButtonCallback, false);
+		}
+		//this function should return the user to the previous page
+		function backButtonCallback() {
+			window.history.go(-2);
+		}
+		//to handle external URLs 
+		function openURL(urlString){
+			myURL = encodeURI(urlString);
+			window.open(myURL, '_blank');  // change to _system to use system browser 
+		}
+	  </script>
+    <link  href="css/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+	<script src="js/fotorama.js"></script> <!-- 16 KB -->
+	<style>
+	#style1 {
+		
+	}
+	#style2 {
+		text-indent: 50px;
+	}
+	</style>
+</head>
+<body>
+<!-- header -->
+<div data-role="header" data-theme="b">
+	<h1></h1>
+	<a href="javascript: window.history.go(-1);" rel="external" data-icon="back" class="ui-btn-left">Back</a>
+</div>
+<div data-role="content">
+<h2 style="text-align:center">Tour De Mississauga 2014</h2>
+  <div style="padding-top:5%" class="fotorama" data-width="100%"
+       data-height="35%">
+       <img src="imgs/eventsmiss/tdm_Poster.jpg" alt="Event poster">
+      <img src="imgs/eventsmiss/tdm1.jpg" alt="tdm1">
+      <img src="imgs/eventsmiss/tdm2.jpg" width="1024" height="682" alt="tdm2">
+      <img src="imgs/eventsmiss/tdm3.jpg" width="1024" height="683" alt="tdm3">
+      <img src="imgs/eventsmiss/tdm4.jpg" width="1024" height="685" alt="tdm4">
+  </div>
+  <div id="eventInfo">
+  <p>
+  	 <strong>Where: </strong> <span>Mississauga Celebration Square </span><br> <br>
+     <strong>When: </strong> <span>Sunday September 21, 2014 </span> <br><br>
+	 <strong>Free: </strong> <span>Tour participation including food (en route and at Celebration Square) is FREE! </span> <br> <br>
+	 <strong>Participants: </strong><span id="style1"> Cyclists aged 10 or older as of Tour day (aged 7 or older for 15km and 30km routes), of any ability, on any kind of bike (including electric assist), are welcome to participate in this FREE non-competitive cycling tour.  All minors must be accompanied by a parent/guardian. Training wheels are acceptable.  </span> <br><br>
+	 <strong> Route options: </strong> 
+	 <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
+		<div data-role="collapsible">
+			<h2>5km Family Ride (10:30 am START)</h2>
+			<p>This is a route suitable for children age 7+ (where parents decide, children may ride on the sidewalk). Bike lanes, off-road trails and quiet streets. Adult riders will find this an enjoyable ride around the City Centre! The route includes a small section of the Cooksville Creek Trail (unpaved, hard packed screenings), so not suitable for road bikes, although a road-based detour is available up Arista Way.</p>
+		</div>
+		<div data-role="collapsible">
+			<h2>30km Leisure Ride (9:30 am START)</h2>
+			<p>This ride includes a sampling of all kinds of bike routes in Mississauga. The route is now ALL-PAVED. A high percentage of the ride is on long stretches of off-road (paved) trails. The route is doable by children aged 7+ who are used to cycling.</p>
+		</div>
+		
+		<div data-role="collapsible">
+			<h2>60km Signature Ride (8:30 am START)</h2>
+			<p> Our most popular route, featuring all the latest significant cycling infrastructure installations and improvements. In 2013, for the first time, cyclists were able to ride almost the complete width of the City, from east to west, along the newly completed Burnhamthorpe multi-use (off-road) trail. The entire route is paved this year, making it suitable for all kinds of bikes including road bikes. There are more straight sections and fewer turns. Apart from an upward incline on Tenth Line, the route is fairly flat and we expect this to be a faster route this year in the range of 3-4 hours.</p>
+		</div>
+		
+		<div data-role="collapsible">
+			<h2>100km Challenge Road Ride (8:00 am START)</h2>
+			<p>Time: 4.5 hours; average speed 25km; uphills are midway on the route at Winston Churchill (to QEW) and on 10th Line. This 100km ride IS a Challenge but is the best route we’ve had yet, to cover so much of the City in one shot! There are a lot of straights and fewer turns.</p>
+		</div>
+		
+		<div data-role="collapsible">
+			<h2>120km City Classic Ride (7:00 am START)</h2>
+			<p>*NEW* By popular demand, we’ve added a longer, even more challenging route which we estimate will take 6 hours to complete, all within the city boundaries!</p>
+		</div>
+	 </div> <br>
+	  <strong>Food & Refreshments: </strong> 
+	  <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
+		<div data-role="collapsible">
+			<h2> Free BBQ </h2>
+			<p>Again this year, with the support of the <strong>Region of Peel Walk + Roll program </strong>, all participating Tour riders will receive a free lunch at the end of their rides at Celebration Square. <i>BBQ is open 11:00am – 3:00pm.</i></p>
+		</div>
+		<div data-role="collapsible">
+			<h2> Enhanced food experience </h2>
+			<p>The C-Café (located on the north end of Celebration Square) will provide Tour riders with a gourmet food experience for $20 which includes one glass of wine or a beer plus three (3) gourmet food tastings. Riders will be seated at the outdoor Café patio by the fountain, with adjacent bike parking. Tickets are limited to 150, so order early. Some tickets may be available on-site on Tour Day. Additional beverages may be purchased at the Café. Please pre-order your Voucher for the Food Experience by September 18, 2014, via the City’s E-Store.</p>
+		</div>
+		<div data-role="collapsible">
+			<h2> Food trucks </h2>
+			<p>These mobile food providers are very popular at Celebration Square! This year for the first time, we have arranged for a variety of food trucks to be available, should riders wish to purchase their favourite snack after their rides.</p>
+		</div>
+		<div data-role="collapsible">
+			<h2>Rest stops</h2>
+			<p>There will be 2 or 3 rest stops around the City to accommodate all riders regardless of route. We are pleased to be receiving corporate donations for the refreshment of the riders, and the rest stops include public washroom facilities.</p>
+		</div>	
+	  </div>
+	 <br>
+	 <strong>Jerseys/T-Shirts: </strong> <span>These can be ordered online via the <a href="#" onclick=openURL("https://www.mississauga.ca/portal/services/shop?paf_gear_id=4200016&dest_page=/portal/services/shop&step=category&returnURL=/portal/services/shop%3Fpaf_gear_id%3D4200016%26dest_page%3D/portal/services/shop%26catId%3Dcat320086q%26step%3Dcategory&catId=cat320086q")>City's E-Store</a>.  Some T-shirts and Jerseys may also be available for sale on Registration Package Pickup days (as supplies last).PLEASE ORDER BY SEPTEMBER 18, 2014.</span><br> <br>
+	 
+	 <strong>Safety: </strong> <span>  ALL RIDERS (including adults) MUST WEAR A BIKE HELMET. <a href="#" onclick=openURL("http://www.mississaugacycling.ca/tour/safety")>Review our Safety Guidelines</a>.</span> <br> <br>
+	 
+	 <strong>Interested? </strong> <span> Registration is required for participation. Please <a href="#" onclick=openURL("https://www7.mississauga.ca/cityforms/tourmiss/")>register here</a> before Friday, September 19, 2014 @ 12 noon.</span><br><br>
+	 <strong>Note:</strong> <span>ALL RIDERS AGED 7 or older NEED TO BE REGISTERED SEPARATELY. Children travelling in bike trailers, bike-mounted child seats or on tandem-tows are not considered to be cycling participants and therefore do not need to be registered individually.</span> <br> <br>
+	 <strong>Questions? </strong><span>Please <a href="mailto:mcac.tour@mississauga.ca?subject=Correspondence - Tour de Mississauga">contact here</a>.</span>
+   </p>
+  </div>
+ </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.animate-enhanced.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+project: Trail Walk
+author: Team MainMethod
+email: jonathan.zarate@outlook.com
+created: August 10, 2014
+version: 1.0
+note: 
+The dialog used for this page appears to only work with previous versions of jquery and jquery mobile
+Known issues:
+An example such as (navigator.app.backHistory()) needs to be tested in order to avoid having to 
+point to specific pages when use clicks back button on device
+todo:
+need conditional statement to store the previous page's session
+such that when a user selects continue, it will match the url from the previous page 
+with the page the user is supposed to be redirected to avoid having to make multiple pages 
+for one specific task
+-->
+<html>
+<head>
+	<!-- meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,
+	maximum-scale=1, user-scalable=no"/>
+	<link rel=stylesheet href=http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css />
+	<script src=http://code.jquery.com/jquery-1.6.min.js></script>
+	<script src=http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js></script>
+	<!-- cordova: required for hardware control and must be placed only after all other dependencies -->
+	 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <!-- handles device back button and should redirect the user to their previous session -->
+	 <script>
+		$(document).on('pageshow', '#map-page', function(){
+					//display ajax-loader.gif on pageshow
+					$.mobile.loading( 'show');
+				}); 
+		function onLoad() {
+        //hide ajax-loader.gif once the page has been loaded
+			$.mobile.loading('hide');
+			document.addEventListener('deviceready', deviceReady, false);
+		}
+		function deviceReady() {
+			document.addEventListener('backbutton', backButtonCallback, false);
+		}
+		//this function should return the user to the previous page
+		function backButtonCallback() {
+			window.history.go(-2);
+		}
+	  </script>
+
+	  <!-- force the "close button" on the dialog box to disappear -->
+	  <style>
+		 .ui-dialog .ui-header .ui-btn-icon-notext { display:none;} 
+	  </style>
+</head>
+<body>
+<div data-role="page" data-theme="a"></div>
+<div id="noticedialog" data-role="dialog" data-close-btn="none" data-theme="a">
+    <div data-role="header">
+        <h1>Notice</h1>
+    </div>
+    <div data-role="content" data-theme="a" style="text-align:center;">
+        <p>
+            This feature of the app is currently in pre-alpha stages and has very limited features
+        </p>
+        <a href="offline_bicycle_lane.html" rel="external" data-role="button" data-theme="b">Continue</a>
+		<!-- the javascript: window.history.go(-2) function is necessary due to the fact that button is within a page in itself" -->
+        <a href="javascript: window.history.go(-2)" rel="external" data-role="button" data-theme="a">Stay Online</a>
+    </div>
+  </div>
+</body>
+<!-- opens the dialog when the document is ready -->
+	<script type="text/javascript">
+	$(document).ready(function () {
+	   setTimeout(function () {
+		$.mobile.changePage('#noticedialog', { transition: 'pop', role: 'dialog' });
+	}, 100);
+	}); 
+	</script>
+</html>
+
