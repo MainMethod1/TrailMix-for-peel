@@ -6,7 +6,7 @@ email: jonathan.zarate@outlook.com
 created: August 10, 2014
 version: 1.0
 notes: uses superslides plugin
-includes: 
+includes:
 jquery.easing.1.3.js
 jquery.animate-enhanced.min.js
 jquery.superslides.min.js
@@ -30,7 +30,7 @@ known issues:
 		$(document).on('pageshow', '#map-page', function(){
 					//display ajax-loader.gif on pageshow
 					$.mobile.loading( 'show');
-				}); 
+				});
 		function onLoad() {
         //hide ajax-loader.gif once the page has been loaded
 			$.mobile.loading('hide');
@@ -43,17 +43,17 @@ known issues:
 		function backButtonCallback() {
 			window.history.go(-2);
 		}
-		//to handle external URLs 
+		//to handle external URLs
 		function openURL(urlString){
 			myURL = encodeURI(urlString);
-			window.open(myURL, '_blank');  // change to _system to use system browser 
+			window.open(myURL, '_blank');  // change to _system to use system browser
 		}
 	  </script>
     <link  href="css/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
 	<script src="js/fotorama.js"></script> <!-- 16 KB -->
 	<style>
 	#style1 {
-		
+
 	}
 	#style2 {
 		text-indent: 50px;
@@ -82,33 +82,38 @@ known issues:
      <strong>When: </strong> <span>Sunday September 21, 2014 </span> <br><br>
 	 <strong>Free: </strong> <span>Tour participation including food (en route and at Celebration Square) is FREE! </span> <br> <br>
 	 <strong>Participants: </strong><span id="style1"> Cyclists aged 10 or older as of Tour day (aged 7 or older for 15km and 30km routes), of any ability, on any kind of bike (including electric assist), are welcome to participate in this FREE non-competitive cycling tour.  All minors must be accompanied by a parent/guardian. Training wheels are acceptable.  </span> <br><br>
-	 <strong> Route options: </strong> 
+	 <strong> Route options: </strong>
 	 <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
 		<div data-role="collapsible">
-			<h2>5km Family Ride (10:30 am START)</h2>
+			<h2>15km Family Ride (10:30 am START)</h2>
 			<p>This is a route suitable for children age 7+ (where parents decide, children may ride on the sidewalk). Bike lanes, off-road trails and quiet streets. Adult riders will find this an enjoyable ride around the City Centre! The route includes a small section of the Cooksville Creek Trail (unpaved, hard packed screenings), so not suitable for road bikes, although a road-based detour is available up Arista Way.</p>
+			<input id="km15" type="button" value="View on map" onclick="km15f();" data-inline="true" data-mini="true" />
 		</div>
 		<div data-role="collapsible">
 			<h2>30km Leisure Ride (9:30 am START)</h2>
 			<p>This ride includes a sampling of all kinds of bike routes in Mississauga. The route is now ALL-PAVED. A high percentage of the ride is on long stretches of off-road (paved) trails. The route is doable by children aged 7+ who are used to cycling.</p>
+			<input id="km30" type="button" value="View on map" onclick="km30f();" data-inline="true" data-mini="true" />
 		</div>
-		
+
 		<div data-role="collapsible">
 			<h2>60km Signature Ride (8:30 am START)</h2>
 			<p> Our most popular route, featuring all the latest significant cycling infrastructure installations and improvements. In 2013, for the first time, cyclists were able to ride almost the complete width of the City, from east to west, along the newly completed Burnhamthorpe multi-use (off-road) trail. The entire route is paved this year, making it suitable for all kinds of bikes including road bikes. There are more straight sections and fewer turns. Apart from an upward incline on Tenth Line, the route is fairly flat and we expect this to be a faster route this year in the range of 3-4 hours.</p>
+			<input id="km60" type="button" value="View on map" onclick="km60f();" data-inline="true" data-mini="true" />
 		</div>
-		
+
 		<div data-role="collapsible">
 			<h2>100km Challenge Road Ride (8:00 am START)</h2>
 			<p>Time: 4.5 hours; average speed 25km; uphills are midway on the route at Winston Churchill (to QEW) and on 10th Line. This 100km ride IS a Challenge but is the best route we’ve had yet, to cover so much of the City in one shot! There are a lot of straights and fewer turns.</p>
+			<input id="km100" type="button" value="View on map" onclick="km100f();" data-inline="true" data-mini="true" />
 		</div>
-		
+
 		<div data-role="collapsible">
 			<h2>120km City Classic Ride (7:00 am START)</h2>
 			<p>*NEW* By popular demand, we’ve added a longer, even more challenging route which we estimate will take 6 hours to complete, all within the city boundaries!</p>
+			<input id="km120" type="button" value="View on map" onclick="km120f();" data-inline="true" data-mini="true" />
 		</div>
 	 </div> <br>
-	  <strong>Food & Refreshments: </strong> 
+	  <strong>Food & Refreshments: </strong>
 	  <div data-role="collapsible-set" data-theme="b" data-content-theme="d">
 		<div data-role="collapsible">
 			<h2> Free BBQ </h2>
@@ -125,13 +130,13 @@ known issues:
 		<div data-role="collapsible">
 			<h2>Rest stops</h2>
 			<p>There will be 2 or 3 rest stops around the City to accommodate all riders regardless of route. We are pleased to be receiving corporate donations for the refreshment of the riders, and the rest stops include public washroom facilities.</p>
-		</div>	
+		</div>
 	  </div>
 	 <br>
 	 <strong>Jerseys/T-Shirts: </strong> <span>These can be ordered online via the <a href="#" onclick=openURL("https://www.mississauga.ca/portal/services/shop?paf_gear_id=4200016&dest_page=/portal/services/shop&step=category&returnURL=/portal/services/shop%3Fpaf_gear_id%3D4200016%26dest_page%3D/portal/services/shop%26catId%3Dcat320086q%26step%3Dcategory&catId=cat320086q")>City's E-Store</a>.  Some T-shirts and Jerseys may also be available for sale on Registration Package Pickup days (as supplies last).PLEASE ORDER BY SEPTEMBER 18, 2014.</span><br> <br>
-	 
+
 	 <strong>Safety: </strong> <span>  ALL RIDERS (including adults) MUST WEAR A BIKE HELMET. <a href="#" onclick=openURL("http://www.mississaugacycling.ca/tour/safety")>Review our Safety Guidelines</a>.</span> <br> <br>
-	 
+
 	 <strong>Interested? </strong> <span> Registration is required for participation. Please <a href="#" onclick=openURL("https://www7.mississauga.ca/cityforms/tourmiss/")>register here</a> before Friday, September 19, 2014 @ 12 noon.</span><br><br>
 	 <strong>Note:</strong> <span>ALL RIDERS AGED 7 or older NEED TO BE REGISTERED SEPARATELY. Children travelling in bike trailers, bike-mounted child seats or on tandem-tows are not considered to be cycling participants and therefore do not need to be registered individually.</span> <br> <br>
 	 <strong>Questions? </strong><span>Please <a href="mailto:mcac.tour@mississauga.ca?subject=Correspondence - Tour de Mississauga">contact here</a>.</span>
@@ -141,6 +146,29 @@ known issues:
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/jquery.animate-enhanced.min.js"></script>
-
+  <script>
+  function km15f(){
+	  
+	  window.localStorage.setItem("km15", "selected");
+	  window.location.href = "online_tdm_map.html";
+  }
+  function km30f(){
+	   window.localStorage.setItem("km30", "selected");
+	  window.location.href = "online_tdm_map.html";
+	  
+  }
+  function km60f(){
+	   window.localStorage.setItem("km60", "selected");
+	  window.location.href = "online_tdm_map.html";
+  }
+  function km100f(){
+	   window.localStorage.setItem("km100", "selected");
+	  window.location.href = "online_tdm_map.html";
+  }
+  function km120f(){
+	   window.localStorage.setItem("km120", "selected");
+	  window.location.href = "online_tdm_map.html";
+  }
+  </script>
 </body>
 </html>

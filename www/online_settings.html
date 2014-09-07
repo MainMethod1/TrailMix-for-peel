@@ -35,16 +35,19 @@ for one specific task
 					//display ajax-loader.gif on pageshow
 					$.mobile.loading( 'show');
 				}); 
+				
 		function onLoad() {
         //hide ajax-loader.gif once the page has been loaded
 			$.mobile.loading('hide');
 			document.addEventListener('deviceready', deviceReady, false);
 		}
+		
+		
 		function deviceReady() {
 			document.addEventListener('backbutton', backButtonCallback, false);
 			
 			
-			if(window.localStorage.getItem("blane_cbox") == "checked"){
+	   if(window.localStorage.getItem("blane_cbox") == "checked"){
 		   
 		  $('#blane_cbox').prop('checked', true);
 		  console.log("hey from here in blane");
@@ -79,6 +82,8 @@ for one specific task
 	   
 	   
 	}
+		
+		
 		//this function should return the user to the previous page
 		function backButtonCallback() {
 			window.history.go(-1);
