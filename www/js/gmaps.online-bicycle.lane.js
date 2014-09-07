@@ -23,8 +23,7 @@ $(document).ready(function(){
   url: 'https://sites.google.com/site/mainmethodkmlsite/munbnd_jan2013.kml?attredirects=0&d=1',
   suppressInfoWindows: true
   });
-  
- 
+	  
   
   if(window.localStorage.getItem("blane_cbox") == "checked"){
 	   //load bicycle lanes from kml file
