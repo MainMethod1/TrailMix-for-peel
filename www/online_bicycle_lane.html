@@ -77,7 +77,7 @@ todo:
 							<!-- index should be specified as an external link to resolve issues with overriding the
 							device back button -->
 							<li><a href="index.html" rel="external" data-icon="home">Home</a></li>
-							<li><a href="offline_notice.html" rel="external" data-transition="none" data-icon="grid">Offline</a></li>
+						<li><a href="#" onclick="openInDevMsg()" data-icon="grid">Offline</a></li>
 							<li><a href="#menupanel" id="menu" data-icon="bars" >Menu</a></li>
 						</ul>
 					</div>
@@ -107,7 +107,7 @@ todo:
 			<a href="#" data-role="button" id="findme" data-icon="search" onclick="findMe(); return false;">Find Me!</a>
 
 		<!-- button to start recording user's activity -->
-			<a href="#" data-role="button" id="record" data-icon="navigation">Record</a>
+			<a href="#" data-role="button" id="record" onclick="openInDevMsg()" data-icon="navigation">Record</a>
 
 			<!-- this is not meant to be a button but is supposed to display user's Bıcurrent speed via
 			accelerometer and through the use of innerHTML manipulation -->

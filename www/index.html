@@ -13,14 +13,14 @@ known issues:
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,
 	maximum-scale=1, user-scalable=no"/>
-	
+
 	<!-- jQuery Mobile local libraries -->
     <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
     <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="js/jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
-	
+
 	<!-- cordova: required for hardware control and must be placed only after all other dependencies -->
-	
+
 	 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <!-- handles the device back button and displays a confirm dialog box to the user -->
 	 <script>
@@ -30,7 +30,7 @@ known issues:
 
                 function deviceReady() {
                     document.addEventListener('backbutton', backButtonCallback, false);
-       
+
                 }
 
                 function backButtonCallback() {
@@ -44,7 +44,7 @@ known issues:
                     return true;
                     }
                 else {
-                    return false;		
+                    return false;
                     }
                 }*/
        //This will clear all of the trails each time user selects a different trail from the home page
@@ -54,8 +54,8 @@ known issues:
 	   window.localStorage.setItem("pmutrail_cbox", "unchecked");
 	   window.localStorage.setItem("umdtrail_cbox","unchecked");
 	   window.localStorage.setItem("unpavedmutrail_cbox","unchecked");
-		   
-		
+
+
        </script>
 </head>
 <body onload="onLoad();">
@@ -63,7 +63,7 @@ known issues:
 <!-- Split button list used to select an activity and displays relevant information which pertains to that activity -->
 <section id="activities" data-role="page" id="home">
 
-<!-- header -->  
+<!-- header -->
 	<div class="ui-content">
           <!-- <h2>What do you feel like doing today?</h2></br></br> -->
             <a href="eventsmiss.html" rel="external" data-role="button" data-theme="b">
@@ -187,14 +187,14 @@ function sendFeedback(){
 		alertDismissed,         // callback
 		'Error',            // title
 	 	'Okay'                  // buttonName
-	 	);		
+	 	);
 	   }
    else{
 	if($("#name_tbox").val().length <= 0){
 		 var link = "mailto:feedback.trailmix@gmail.com"
              + "?subject=" + escape("Trailmix feedback")
              + "&body=" + escape("User: Anonymous \n" +  "Feedback: " + $("#feedback_tbox").val());
-    
+
 
     window.location.href = link;
 	}
@@ -202,7 +202,7 @@ function sendFeedback(){
     var link = "mailto:feedback.trailmix@gmail.com"
              + "?subject=" + escape("Trailmix feedback")
              + "&body=" + escape("User: " + $("#name_tbox").val() + "\nFeedback: " + $("#feedback_tbox").val());
-    
+
 
     window.location.href = link;
     }
