@@ -53,7 +53,7 @@ todo:
 		//simply referencing the index.html on changePage prevents the back button upon page transition
 		//window.location.href resolves this issue
 		function backButtonCallback() {
-			 $('#mapexitpopup').popup().popup('open');
+			navigator.app.backHistory();
 			//$.mobile.changePage(window.location.href="index.html", { changeHash: false });
 		}
 		
@@ -68,46 +68,13 @@ todo:
 			<!-- <input type="search" name="search-2" id="search" placeholder="Search location" /> -->
 				<!-- header -->
 				<div data-role="header" data-position="fixed" data-theme="b">
-					<div data-role="navbar">
-						<ul>
-							<!-- index should be specified as an external link to resolve issues with overriding the
-							device back button -->
-							<li><a href="index.html" rel="external" data-icon="home">Home</a></li>
-							<li><a href="offline_notice.html" rel="external" data-transition="none" data-icon="grid">Offline</a></li>
-							<li><a href="#menupanel" id="menu" data-icon="bars" >Menu</a></li>
-						</ul>
+					 <h1> </h1>
+					 <a href="javascript: window.history.go(-1);" rel="external" data-icon="back" class="ui-btn-left">Back</a>
 					</div>
 				</div>
 		</div>
 
-		<!-- menu panel -->
-		<div data-role="panel" id="menupanel" data-theme="b" data-display="overlay" data-position="right">
-			<div data-role="controlgroup" data-corners="false">
-				<!-- Trails in Peel -->
-				<div data-role="collapsible" data-iconpos="right" data-collapsed-icon="arrow-u-r" and data-expanded-icon="arrow-d" data-collapsible="true">
-					<h3>Trails in Peel</h3>
-						<ul data-role="listview" data-icon="false">
-							<!-- populate the map with markers displaying known trails in mississauga -->
-							<li><a href="#mississauga" id="miss" onclick="showTrailsMiss(); return false;">Mississauga</a></li>
-							<!-- populate the map with markers displaying known trails in brampton -->
-							<li><a href="#brampton" id="bramp" onclick="showTrailsBramp(); return false;">Brampton</a></li>
-							<!-- populate the map with markers displaying known trails in caledon -->
-							<li><a href="#caledon" id="cal" onclick="showTrailsCal(); return false;">Caledon</a></li>
-							<!-- populate the map with markers displaying other known trails -->
-							<li><a href="#other" id="other" onclick="showTrailsOther(); return false;">Other</a></li>
-						</ul>
-				</div>
-
-				<!-- Options -->
-				<ul data-role="listview" data-inset="false">
-					<li data-icon="star"><a href="#" onclick="openInDevMsg()">Favourites</a></li>
-					<li data-icon="edit"><a href="#" onclick="openInDevMsg()">History</a></li>
-					<li data-icon="calendar"><a href="#eventspopup" data-rel="popup" data-transition="pop" id="events">Events</a></li>
-					<li data-icon="info"><a href="#" onclick="openInDevMsg()">Statistics</a></li>
-					<li data-icon="gear"><a href="online_settings.html" rel="external" data-transition="slide" id="settings">Settings</a></li>
-				</ul>
-			</div>
-		</div>
+		
 
 		<!-- footer -->
 		<div data-role="footer" id="footer" class="ui-bar" data-position="fixed" data-theme="b">
@@ -116,11 +83,11 @@ todo:
 			<a href="#" data-role="button" id="findme" data-icon="search" onclick="findMe(); return false;">Find Me!</a>
 
 		<!-- button to start recording user's activity -->
-			<a href="#" data-role="button" id="record" data-icon="navigation">Record</a>
+		<!--	<a href="#" data-role="button" id="record" data-icon="navigation">Record</a> -->
 
 			<!-- this is not meant to be a button but is supposed to display user's Bıcurrent speed via
 			accelerometer and through the use of innerHTML manipulation -->
-			<a href="#" data-role="content" data-icon="carat-r">Km/Hr</a>
+		<!--	<a href="#" data-role="content" data-icon="carat-r">Km/Hr</a> -->
 		</div>
 
 		<!-- map exit window -->

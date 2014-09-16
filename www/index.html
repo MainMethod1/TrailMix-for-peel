@@ -30,6 +30,7 @@ known issues:
 
                 function deviceReady() {
                     document.addEventListener('backbutton', backButtonCallback, false);
+       
                 }
 
                 function backButtonCallback() {
@@ -79,7 +80,7 @@ known issues:
 			<li>
 				<a href="online_running.html" rel="external" data-transition="none">
 				<img src="imgs/activities/jogging.png">
-				<h2>Run</h2></a>
+				<h2>Walk</h2></a>
 				<a href="#aboutRunning" data-rel="popup" data-position-to="window" data-transition="pop"></a>
 			</li>
 			<li>
@@ -153,15 +154,61 @@ known issues:
 				</ul>
 			</div>
 
-<!-- about -->
-	<div id="about" data-role="popup" data-overlay-theme="b" style="text-align:center;" >
-		<p>Developed by Team MainMethod.</br> Copyright &reg; 2014</p>
-	</div>
-
 <!-- footer -->
 <div id="footer" data-role="footer" data-position="fixed" data-theme="b" style="text-align:center;">
-	<a href="#about" data-rel="popup" data-position-to="window"  data-role="button" data-icon="info"></a>
+	<a href="#feedback" data-role="button" data-transition = "slide">Feedback <br> Tell us what you think!</a>
 </div>
 </section>
+
+<div id="feedback" data-role="page" id="home">
+<div data-role="header" data-theme="b">
+<h1>Feedback</h1>
+<a href="javascript: window.history.go(-1);" rel="external" data-icon="back" class="ui-btn-left">Back</a>
+</div>
+<div data-role="content">
+<p>Since this is still a beta version, it'd be really helpful if you can give us some feedback on this app! </p>
+<div data-role="fieldcontain">
+<label for="name_tbox">Name(*optional): </label>
+<input type="text" id="name_tbox" />
+</div>
+
+<div data-role="fieldcontain">
+<label for="feedback_tbox">Feedback: </label>
+<textarea id="feedback_tbox"> </textarea>
+</div>
+<Button type="submit" onclick="sendFeedback(); return false;" data-role="button" data-mini="true"> Send </Button>
+</div>
+</div>
+<script>
+function sendFeedback(){
+	if($("#feedback_tbox").val() == " "){
+		navigator.notification.alert(
+		"Uh oh, you can't send an empty feedback",  // message
+		alertDismissed,         // callback
+		'Error',            // title
+	 	'Okay'                  // buttonName
+	 	);		
+	   }
+   else{
+	if($("#name_tbox").val().length <= 0){
+		 var link = "mailto:feedback.trailmix@gmail.com"
+             + "?subject=" + escape("Trailmix feedback")
+             + "&body=" + escape("User: Anonymous \n" +  "Feedback: " + $("#feedback_tbox").val());
+    
+
+    window.location.href = link;
+	}
+	else{
+    var link = "mailto:feedback.trailmix@gmail.com"
+             + "?subject=" + escape("Trailmix feedback")
+             + "&body=" + escape("User: " + $("#name_tbox").val() + "\nFeedback: " + $("#feedback_tbox").val());
+    
+
+    window.location.href = link;
+    }
+    }
+}
+function alertDismissed(){return false;}
+</script>
 </body>
 </html>

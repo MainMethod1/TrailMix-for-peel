@@ -44,7 +44,7 @@ version: 1.0
       //$.mobile.changePage(window.location.href="index.html", { changeHash: false });
     }
 
-   window.localStorage.setItem("pmutrail_cbox", "checked");
+        window.localStorage.setItem("pmutrail_cbox", "checked");
 		window.localStorage.setItem("umdtrail_cbox", "checked");
 		window.localStorage.setItem("unpavedmutrail_cbox", "checked");
 		window.localStorage.setItem("htrail_cbox", "checked");
@@ -74,21 +74,7 @@ version: 1.0
     <!-- menu panel -->
     <div data-role="panel" id="menupanel" data-theme="b" data-display="overlay" data-position="right">
       <div data-role="controlgroup" data-corners="false">
-        <!-- Trails in Peel -->
-        <div data-role="collapsible" data-iconpos="right" data-collapsed-icon="arrow-u-r" and data-expanded-icon="arrow-d" data-collapsible="true">
-          <h3>Trails in Peel</h3>
-            <ul data-role="listview" data-icon="false">
-              <!-- populate the map with markers displaying known trails in mississauga -->
-              <li><a href="#mississauga" id="miss" onclick="showTrailsMiss(); return false;">Mississauga</a></li>
-              <!-- populate the map with markers displaying known trails in brampton -->
-              <li><a href="#brampton" id="bramp" onclick="showTrailsBramp(); return false;">Brampton</a></li>
-              <!-- populate the map with markers displaying known trails in caledon -->
-              <li><a href="#caledon" id="cal" onclick="showTrailsCal(); return false;">Caledon</a></li>
-              <!-- populate the map with markers displaying other known trails -->
-              <li><a href="#other" id="other" onclick="showTrailsOther(); return false;">Other</a></li>
-            </ul>
-        </div>
-
+      
         <!-- Options -->
         <ul data-role="listview" data-inset="false">
           <li data-icon="star"><a href="#" onclick="openInDevMsg()">Favourites</a></li>

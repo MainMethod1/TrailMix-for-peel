@@ -41,7 +41,7 @@ known issues:
 		}
 		//this function should return the user to the previous page
 		function backButtonCallback() {
-			window.history.go(-2);
+			navigator.app.backHistory();
 		}
 		//to handle external URLs
 		function openURL(urlString){
