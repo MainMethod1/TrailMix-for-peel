@@ -13,14 +13,14 @@ known issues:
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1,
 	maximum-scale=1, user-scalable=no"/>
-	
+
 	<!-- jQuery Mobile local libraries -->
     <link rel="stylesheet" href="css/jquery.mobile-1.4.3.min.css" />
     <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
     <script src="js/jquery.mobile-1.4.3.min.js" type="text/javascript"></script>
-	
+
 	<!-- cordova: required for hardware control and must be placed only after all other dependencies -->
-	
+
 	 <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <!-- handles the device back button and displays a confirm dialog box to the user -->
 	 <script>
@@ -30,6 +30,7 @@ known issues:
 
                 function deviceReady() {
                     document.addEventListener('backbutton', backButtonCallback, false);
+
                 }
 
                 function backButtonCallback() {
@@ -43,7 +44,7 @@ known issues:
                     return true;
                     }
                 else {
-                    return false;		
+                    return false;
                     }
                 }*/
        //This will clear all of the trails each time user selects a different trail from the home page
@@ -53,8 +54,8 @@ known issues:
 	   window.localStorage.setItem("pmutrail_cbox", "unchecked");
 	   window.localStorage.setItem("umdtrail_cbox","unchecked");
 	   window.localStorage.setItem("unpavedmutrail_cbox","unchecked");
-		   
-		
+
+
        </script>
 </head>
 <body onload="onLoad();">
@@ -62,7 +63,7 @@ known issues:
 <!-- Split button list used to select an activity and displays relevant information which pertains to that activity -->
 <section id="activities" data-role="page" id="home">
 
-<!-- header -->  
+<!-- header -->
 	<div class="ui-content">
           <!-- <h2>What do you feel like doing today?</h2></br></br> -->
             <a href="eventsmiss.html" rel="external" data-role="button" data-theme="b">
@@ -73,22 +74,22 @@ known issues:
 			<li>
 				<a href="online_bicycle_lane.html" rel="external" data-transition="none">
 				<img src="imgs/activities/cycling.png">
-				<h2>Bicycle Lane</h2></a>
+				<h2>Bike</h2></a>
 				<a href="#aboutCycling1" data-rel="popup" data-position-to="window" data-transition="pop"></a>
 			</li>
 			<li>
-				<a href="online_signed_bike_route.html" rel="external" data-transition="none">
-				<img src="imgs/activities/cycling.png">
-				<h2>Signed Bike Route</h2></a>
-				<a href="#aboutCycling2" data-rel="popup" data-position-to="window" data-transition="pop"></a>
+				<a href="online_running.html" rel="external" data-transition="none">
+				<img src="imgs/activities/jogging.png">
+				<h2>Walk</h2></a>
+				<a href="#aboutRunning" data-rel="popup" data-position-to="window" data-transition="pop"></a>
 			</li>
 			<li>
 				<a href="online_hiking_trail.html" rel="external" data-transition="none">
 				<img src="imgs/activities/hiking.png">
-				<h2>Hiking Trail</h2></a>
+				<h2>Hike</h2></a>
 				<a href="#aboutHiking" data-rel="popup" data-position-to="window" data-transition="pop"></a>
 			</li>
-			<li>
+			<!--<li>
 				<a href="online_paved_multiuse_trail.html" rel="external" data-transition="none">
 				<img src="imgs/activities/multiuse.png">
 				<h2>Paved Multi-use Trail</h2></a>
@@ -105,7 +106,7 @@ known issues:
 				<img src="imgs/activities/multiuse.png">
 				<h2>Unmarked Dirt Trail</h2></a>
 				<a href="#aboutWalking" data-rel="popup" data-position-to="window" data-transition="pop"></a>
-			</li>
+			</li> -->
 		   </ul>
 	</div>
 
@@ -153,15 +154,61 @@ known issues:
 				</ul>
 			</div>
 
-<!-- about -->
-	<div id="about" data-role="popup" data-overlay-theme="b" style="text-align:center;" >
-		<p>Developed by Team MainMethod.</br> Copyright &reg; 2014</p>
-	</div>
-
 <!-- footer -->
 <div id="footer" data-role="footer" data-position="fixed" data-theme="b" style="text-align:center;">
-	<a href="#about" data-rel="popup" data-position-to="window"  data-role="button" data-icon="info"></a>
+	<a href="#feedback" data-role="button" data-transition = "slide">Feedback <br> Tell us what you think!</a>
 </div>
 </section>
+
+<div id="feedback" data-role="page" id="home">
+<div data-role="header" data-theme="b">
+<h1>Feedback</h1>
+<a href="javascript: window.history.go(-1);" rel="external" data-icon="back" class="ui-btn-left">Back</a>
+</div>
+<div data-role="content">
+<p>Since this is still a beta version, it'd be really helpful if you can give us some feedback on this app! </p>
+<div data-role="fieldcontain">
+<label for="name_tbox">Name(*optional): </label>
+<input type="text" id="name_tbox" />
+</div>
+
+<div data-role="fieldcontain">
+<label for="feedback_tbox">Feedback: </label>
+<textarea id="feedback_tbox"> </textarea>
+</div>
+<Button type="submit" onclick="sendFeedback(); return false;" data-role="button" data-mini="true"> Send </Button>
+</div>
+</div>
+<script>
+function sendFeedback(){
+	if($("#feedback_tbox").val() == " "){
+		navigator.notification.alert(
+		"Uh oh, you can't send an empty feedback",  // message
+		alertDismissed,         // callback
+		'Error',            // title
+	 	'Okay'                  // buttonName
+	 	);
+	   }
+   else{
+	if($("#name_tbox").val().length <= 0){
+		 var link = "mailto:feedback.trailmix@gmail.com"
+             + "?subject=" + escape("Trailmix feedback")
+             + "&body=" + escape("User: Anonymous \n" +  "Feedback: " + $("#feedback_tbox").val());
+
+
+    window.location.href = link;
+	}
+	else{
+    var link = "mailto:feedback.trailmix@gmail.com"
+             + "?subject=" + escape("Trailmix feedback")
+             + "&body=" + escape("User: " + $("#name_tbox").val() + "\nFeedback: " + $("#feedback_tbox").val());
+
+
+    window.location.href = link;
+    }
+    }
+}
+function alertDismissed(){return false;}
+</script>
 </body>
 </html>

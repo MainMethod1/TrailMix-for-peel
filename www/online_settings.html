@@ -35,16 +35,19 @@ for one specific task
 					//display ajax-loader.gif on pageshow
 					$.mobile.loading( 'show');
 				}); 
+				
 		function onLoad() {
         //hide ajax-loader.gif once the page has been loaded
 			$.mobile.loading('hide');
 			document.addEventListener('deviceready', deviceReady, false);
 		}
+		
+		
 		function deviceReady() {
 			document.addEventListener('backbutton', backButtonCallback, false);
 			
 			
-			if(window.localStorage.getItem("blane_cbox") == "checked"){
+	   if(window.localStorage.getItem("blane_cbox") == "checked"){
 		   
 		  $('#blane_cbox').prop('checked', true);
 		  console.log("hey from here in blane");
@@ -76,10 +79,14 @@ for one specific task
 		  $('#unpavedmutrail_cbox').prop('checked', true);
 		  
 	   }
+	   
+	   
 	}
+		
+		
 		//this function should return the user to the previous page
 		function backButtonCallback() {
-			window.history.go(-1);
+			navigator.app.backHistory()
 		}
 			
 	  </script>
@@ -94,8 +101,9 @@ for one specific task
 <!-- header -->
 <div data-role="header" data-theme="b">
 	<h1>Settings</h1>
-	<!-- <a href="javascript: window.history.go(-2);" rel="external" data-icon="back" class="ui-btn-left">Back</a> -->
-	<a href="javascript:window.history.go(-1)" rel="external" data-icon="back" class="ui-btn-left">Back</a>
+	
+	<!-- <a href="javascript:window.history.go(-1)" rel="external" data-icon="back" class="ui-btn-left">Back</a> -->
+	<a href="online_settings_map.html" rel="external" data-icon="back" class="ui-btn-left">Back</a>
 </div>
 <div data-role="content">
 <fieldset data-role="controlgroup">
