@@ -194,16 +194,12 @@ function sendFeedback(){
 		 var link = "mailto:feedback.trailmix@gmail.com"
              + "?subject=" + escape("Trailmix feedback")
              + "&body=" + escape("User: Anonymous \n" +  "Feedback: " + $("#feedback_tbox").val());
-
-
     window.location.href = link;
 	}
 	else{
     var link = "mailto:feedback.trailmix@gmail.com"
              + "?subject=" + escape("Trailmix feedback")
              + "&body=" + escape("User: " + $("#name_tbox").val() + "\nFeedback: " + $("#feedback_tbox").val());
-
-
     window.location.href = link;
     }
     }
